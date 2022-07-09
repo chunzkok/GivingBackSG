@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const LoginPage = () => {
-    return <div>
-        LoginPage
-    </div>;
+  return <SideNavbar activePath="/login">hi</SideNavbar>;
 };
 
 export default LoginPage;

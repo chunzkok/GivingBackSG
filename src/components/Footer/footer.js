@@ -63,7 +63,7 @@ function Links() {
     >
       <FooterLink label="Home" referTo="/" />
       <FooterLink label="Terms of Service" referTo="/" />
-      <FooterLink label="About Us" referTo="/aboutuspage" />
+      <FooterLink label="About Us" referTo="/" />
       <FooterLink label="Privacy Policy" referTo="/" />
     </Col>
   );

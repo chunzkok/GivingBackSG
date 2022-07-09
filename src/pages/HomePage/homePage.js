@@ -48,7 +48,7 @@ const IntroSection = () => {
             <Button
               className="mx-2 rounded-3"
               href="/browse"
-              style={{ fontSize: "1.2vw" }}
+              style={{ fontSize: "calc(16px + 0.2vw)" }}
             >
               Browse Events
             </Button>
@@ -58,12 +58,12 @@ const IntroSection = () => {
               variant="secondary"
               className="mx-2 rounded-3"
               href="/community"
-              style={{ fontSize: "1.2vw" }}
+              style={{ fontSize: "calc(16px + 0.2vw)" }}
             >
               Community
             </Button>
 
-            <a href="/profile">
+            <a href="/login">
               <Image
                 src="/images/avatar_default.png"
                 alt="Avatar"
