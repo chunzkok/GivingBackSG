@@ -5,9 +5,13 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
-import Spinner from "react-bootstrap/Spinner";
 import Skeleton from "react-loading-skeleton";
-import { Calendar2Heart, BoxArrowInLeft } from "react-bootstrap-icons";
+import {
+  Calendar2Heart,
+  BoxArrowInLeft,
+  BoxArrowRight,
+  PencilSquare,
+} from "react-bootstrap-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleNodes,
@@ -17,7 +21,9 @@ import {
 
 const SideNavbar = ({ children, activePath }) => {
   const { authData, authLoading } = useContext(AuthContext);
-  console.log(authData);
+
+  const signOutHandler = async () => {};
+
   return (
     <Container className="d-flex flex-row p-0" fluid>
       <Col
@@ -44,7 +50,7 @@ const SideNavbar = ({ children, activePath }) => {
             {authLoading ? (
               <>
                 <Skeleton circle width="13vw" height="13vw" className="py-2" />
-                <Skeleton width="50%" height="20px" />
+                <Skeleton width="50%" height="25px" />
               </>
             ) : (
               <>
@@ -88,16 +94,38 @@ const SideNavbar = ({ children, activePath }) => {
           </Nav.Link>
 
           <Nav.Item style={{ height: "50px" }} />
-          <Nav.Link
-            href="/login"
-            className="d-flex justify-content-center align-items-center"
-          >
-            <BoxArrowInLeft className="mx-2" />
-            Login
-          </Nav.Link>
+          {authLoading ? (
+            <Skeleton width="100%" height="25px" />
+          ) : authData.logged_in ? (
+            <Nav.Link
+              className="d-flex justify-content-center align-items-center"
+              onClick={signOutHandler}
+            >
+              <BoxArrowRight className="mx-2" /> Sign Out
+            </Nav.Link>
+          ) : (
+            <>
+              <Nav.Link
+                href="/login"
+                className="d-flex justify-content-center align-items-center"
+              >
+                <BoxArrowInLeft className="mx-2" />
+                Login
+              </Nav.Link>
+              <Nav.Link
+                href="/register"
+                className="d-flex justify-content-center align-items-center"
+              >
+                <PencilSquare className="mx-2" />
+                Register
+              </Nav.Link>
+            </>
+          )}
         </Nav>
       </Col>
-      <Col xs={8}>{children}</Col>
+      <Col xs={8} md={9} xxl={10}>
+        {children}
+      </Col>
     </Container>
   );
 };
