@@ -30,14 +30,19 @@ We believe that our platform will be able to benefit from significant Economies 
 ### Telegram Bot
 To augment the effectiveness of the whole system, we have created a Telegram bot that users will be able to interact with to record their new volunteering efforts, as well as to generate a summary of their volunteering efforts thus far.
 
+<img src="https://user-images.githubusercontent.com/52826683/178099645-2bd47ddc-e5a7-40c3-a3b6-0f9537cada08.jpg" width="275" height="600">
+
 #### Recording System
 In order to make allow for volunteer events to be recorded rapidly, we have created a Telegram Bot that allows users to input a volunteer event code (unique for every event) that will quickly record the user's attendance and add the event to the user's profile. 
 
 #### Volunteer Summary
 Through the bot, users can quickly generate a summary of the volunteering experience that the user has thus far. This is done by sending a request via the Telegram bot to the GivingBack database which will return all the volunteering information of the user in a neatly formatted message. Users will then be provided an option to generate a pdf file of their volunteering experiences, which can be submitted as an official document (for events such as scholarship applications).
 
+<img src="https://user-images.githubusercontent.com/52826683/178099727-8bc12c65-5fd4-4112-9bfe-325ee75ec9ef.jpg" width="275" height="600">
+
 #### PDF generation
 The bot will be able to retrieve volunteering information of each user using their Telegram id, and convert this information into a neatly formatted PDF file which will be returned to the user. 
+![Screenshot 2022-07-09 171523](https://user-images.githubusercontent.com/52826683/178099695-b644d533-56ac-43be-a120-68e8c14ef901.jpg)
 
 ### Our Website
 Visitors will be able to visit our website, which will lead them to a beautiful landing page where they can sign up and look at the various volunteering opportunities that will be presented to them.
