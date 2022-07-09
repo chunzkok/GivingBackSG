@@ -53,7 +53,7 @@ const RegisterPage = () => {
         .insert({ ...profileData, id: user.id });
       if (profileError) throw profileError;
       alert(
-        "Sign Up successful. Please check your email for the verification link before logging in."
+        "Sign up successful. \nPlease check your email for the verification link before logging in."
       );
       navigate("/login");
     } catch (error) {
