@@ -65,6 +65,9 @@ Users will be able to join Groups, where they are treated as a collective. Group
 Currently, we are able to access a temporary database (Google Sheets) and update/retrieve data for unique users through the Telegram bot. Specifically, volunteering information is retrieved from the our Google Sheets database to be displayed to the user, and this information can then be used to generate a pdf file. Additionally, users are able to input a volunteer event code to record a new event in the database. (Currently, any code can be typed in, and a random number will be generated to select one out of nine different sample volunteer event details to be recorded in the database)
 
 The following database started out empty, and was filled up and edited solely through the use of our fully functional Telegram bot.
+<br>
+<br>
+<br>
 ![InkedDatabase](https://user-images.githubusercontent.com/52826683/178111791-4d8f60be-ed22-4d37-8709-9e6d77fa0059.jpg)
 
 
