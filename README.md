@@ -25,7 +25,7 @@ Python | React | JavaScript | Node.js
   * [Friends Page](#friends-page)
   * [Community Page](#community-page)
   * [History Page](#history-page)
-  * [Other Users' Page](#other-users--page)
+  * [Page of Other Users](#page-of-other-users)
   * [Volunteer Events List](#volunteer-events-list)
   * [Database](#database)
 - [Future Improvements and Extensions](#future-improvements-and-extensions)
@@ -112,7 +112,7 @@ This page provides a clear breakdown of what you have volunteered for, and allow
 
 <img src="https://user-images.githubusercontent.com/52826683/178120237-20f47ff0-7022-4720-afd5-fe46ef558f4a.jpg" width="428" height="303">
 
-## Other Users' Page
+## Page of Other Users
 This is how other users' accounts will show up, whereby you are able to see their details, look at the number of mutual friends you have, as well as add them as a friend.
 
 <img src="https://user-images.githubusercontent.com/52826683/178120261-6df2ad24-2472-40ed-a688-a9a67f7527a5.jpg" width="428" height="303">
