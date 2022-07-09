@@ -6,7 +6,6 @@
 <img src="https://user-images.githubusercontent.com/52826683/177026383-48634a68-82e6-42f2-bcb0-1242854b6152.svg" width="50" height="50">
 
 Python | React | JavaScript | Node.js
-
 - [Giving Back - Question 1](#giving-back---question-1)
   * [Motivation](#motivation)
   * [User Stories](#user-stories)
@@ -21,12 +20,19 @@ Python | React | JavaScript | Node.js
     + [Add Telegram ID](#add-telegram-id)
     + [Group Registration](#group-registration)
 - [Application Prototype and Visualisation](#application-prototype-and-visualisation)
-  * [Database](#database)
+  * [Registration Page](#registration-page)
+  * [Login Page](#login-page)
+  * [Friends Page](#friends-page)
+  * [Community Page](#community-page)
+  * [History Page](#history-page)
+  * [Other Users' Page](#other-users--page)
   * [Volunteer Events List](#volunteer-events-list)
+  * [Database](#database)
 - [Future Improvements and Extensions](#future-improvements-and-extensions)
   * [Database Migration](#database-migration)
   * [Singpass Log-in](#singpass-log-in)
   * [Connecting to Official School Volunteering Ecosystems](#connecting-to-official-school-volunteering-ecosystems)
+  * [Cloud Deployment](#cloud-deployment)
 
 # Giving Back - Question 1
 Question Statement:
@@ -82,25 +88,56 @@ Users will be able to link their Telegram account to their user profile, which w
 Users will be able to join Groups, where they are treated as a collective. Groups will then be able to sign up for volunteering events together, where organisers will be presented with the option to either accept the entire Group or reject the Group entirely, thus ensuring that members of a Group will be able to volunteer together. This will solve a huge problem for volunteers who hope to volunteer with their friends but are afraid of not being assigned to volunteer in the same timeslot/event.
 
 # Application Prototype and Visualisation
+
+## Registration Page
+
+<img src="https://user-images.githubusercontent.com/52826683/178120176-1dd4431f-d352-4fc9-9ad8-b7ec5b648058.jpg" width="428" height="303">
+
+## Login Page
+
+<img src="https://user-images.githubusercontent.com/52826683/178120203-517c53df-72bd-4249-938f-9bd794ba035c.jpg" width="428" height="303">
+
+## Friends Page
+A list of the user's friends will be shown, alongside a leaderboard showing a list of friends sorted by number of hours volunteered, in descending order. Challenges that the user is currently participating in will also be displayed.
+
+<img src="https://user-images.githubusercontent.com/52826683/178120418-9a798f7d-5a5a-4ca5-8a2b-32343b8533fb.jpg" width="428" height="303">
+
+## Community Page
+A global leaderboard with users with the highest number of hours volunteered will be displayed in descending order. Popular volunteer experiences shared will be showcase and shared with all users on this page.
+
+<img src="https://user-images.githubusercontent.com/52826683/178120228-8c3a8adb-1f6f-4888-a42a-c08334168578.jpg" width="428" height="303">
+
+## History Page
+This page provides a clear breakdown of what you have volunteered for, and allows for exporting to a pdf file.
+
+<img src="https://user-images.githubusercontent.com/52826683/178120237-20f47ff0-7022-4720-afd5-fe46ef558f4a.jpg" width="428" height="303">
+
+## Other Users' Page
+This is how other users' accounts will show up, whereby you are able to see their details, look at the number of mutual friends you have, as well as add them as a friend.
+
+<img src="https://user-images.githubusercontent.com/52826683/178120261-6df2ad24-2472-40ed-a688-a9a67f7527a5.jpg" width="428" height="303">
+
+## Volunteer Events List
+Volunteers will be able to click on the "Events" tab to take a look at a list of events that they can join. This intuitive UI will allow users to easily navigate and identify activities that they would like to be part of, before signing up as an interested participant.
+
+The following is a prototype design of how the events page would look like.
+
+<img src="https://user-images.githubusercontent.com/52826683/178110395-6d4af849-c127-4b05-9631-7ec2cfe03e9b.jpg" width="428" height="303">
+
+Upon clicking on a desired volunteering event, users will be brought to another page where more information of the site would be shown.
+
+<img src="https://user-images.githubusercontent.com/52826683/178110899-6e738a49-eece-423a-846f-4f76f6c234f6.jpg" width="428" height="303">
+
 ## Database
 Currently, we are able to access a temporary database (Google Sheets) and update/retrieve data for unique users through the Telegram bot. Specifically, volunteering information is retrieved from the our Google Sheets database to be displayed to the user, and this information can then be used to generate a pdf file. Additionally, users are able to input a volunteer event code to record a new event in the database. (Currently, any code can be typed in, and a random number will be generated to select one out of nine different sample volunteer event details to be recorded in the database)
+
+For the sake of testing, users are provided with an option to register using their Telegram ID through the bot. This will then allow users to be able to upload and record new test volunteering activities, and generate pdf files of their test volunteering experiences. Ideally, we would have liked to have users to be able to register via typing in their Telegram ID on our website.
 
 The following database started out empty, and was filled up and edited solely through the use of our fully functional Telegram bot.
 <br>
 <br>
 <br>
 ![InkedDatabase](https://user-images.githubusercontent.com/52826683/178111791-4d8f60be-ed22-4d37-8709-9e6d77fa0059.jpg)
-
-
-## Volunteer Events List
-Volunteers will be able to click on the "Events" tab to take a look at a list of events that they can join. This intuitive UI will allow users to easily navigate and identify activities that they would like to be part of, before signing up as an interested participant.
-
-The following is a prototype design of how the site would look like.
-![Events](https://user-images.githubusercontent.com/52826683/178110395-6d4af849-c127-4b05-9631-7ec2cfe03e9b.jpg)
-
-Upon clicking on a desired volunteering event, users will be brought to another page where more information of the site would be shown.
-![Event details](https://user-images.githubusercontent.com/52826683/178110899-6e738a49-eece-423a-846f-4f76f6c234f6.jpg)
-
 
 # Future Improvements and Extensions
 We believe that our application has the potential to become integrated with the heart of Singapore's volunteering ecosystem. Users can be linked up to the platform from the very beginning of their education journey and use it to track their lifetime's volunteering work.
@@ -113,3 +150,6 @@ If we are able to secure a Singpass log in from users, volunteers will be able t
 
 ## Connecting to Official School Volunteering Ecosystems
 Schools will be able to retrieve official data directly from the platform to be used as reference for verifying students' volunteering records.
+
+## Cloud Deployment
+Currently, the bot can only be run locally and thus will not have 100% uptime. Testers will need to reach out to our team members in order to test the bot. Given more time, we would be able to prepare the bot to be run on the cloud, which will allow it to constantly be available for use.
