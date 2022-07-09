@@ -6,16 +6,14 @@
 <img src="https://user-images.githubusercontent.com/52826683/177026383-48634a68-82e6-42f2-bcb0-1242854b6152.svg" width="50" height="50">
 
 Python | React | JavaScript | Node.js
+
 - [Giving Back - Question 1](#giving-back---question-1)
   * [Motivation](#motivation)
   * [User Stories](#user-stories)
 - [Our Solution](#our-solution)
   * [Benefits of Scaling Up](#benefits-of-scaling-up)
   * [Telegram Bot](#telegram-bot)
-    + [Recording System](#recording-system)
-    + [Volunteer Summary](#volunteer-summary)
-    + [PDF generation](#pdf-generation)
-  * [Website Application](#planned-website-features)
+  * [Website Application](#website-application)
     + [Filter by Preferred Beneficiaries](#filter-by-preferred-beneficiaries)
     + [Add Telegram ID](#add-telegram-id)
     + [Group Registration](#group-registration)
@@ -29,12 +27,27 @@ Python | React | JavaScript | Node.js
   * [History Page](#history-page)
   * [Page of Other Users](#page-of-other-users)
   * [Volunteer Events List](#volunteer-events-list)
-  * [Database](#database)
+- [Our Extent of Implementation](#our-extent-of-implementation)
+  * [Frontend](#frontend)
+    + [Landing Page](#landing-page)
+    + [User Signups and Logins](#user-signups-and-logins)
+    + [Upload Profile Picture and Crop Profile Picture](#upload-profile-picture-and-crop-profile-picture)
+    + [View Profile Pages](#view-profile-pages)
+    + [Clickable Tabs](#clickable-tabs)
+  * [Backend](#backend)
+    + [Login Authentication](#login-authentication)
+    + [Database](#database)
+  * [Telegram Bot](#telegram-bot-1)
+    + [Add or Record Volunteer Experiences](#add-or-record-volunteer-experiences)
+    + [Volunteer Experience Summary](#volunteer-experience-summary)
+    + [PDF Generation](#pdf-generation)
+    + [Telegram Bot Database](#telegram-bot-database)
 - [Future Improvements and Extensions](#future-improvements-and-extensions)
   * [Database Migration](#database-migration)
   * [Singpass Log-in](#singpass-log-in)
   * [Connecting to Official School Volunteering Ecosystems](#connecting-to-official-school-volunteering-ecosystems)
   * [Cloud Deployment](#cloud-deployment)
+
 
 # Giving Back - Question 1
 Question Statement:
@@ -60,22 +73,6 @@ We believe that our platform will be able to benefit from significant Economies 
 To augment the effectiveness of the whole system, we have created a Telegram bot that users will be able to interact with to record their new volunteering efforts, as well as to generate a summary of their volunteering efforts thus far.
 
 <img src="https://user-images.githubusercontent.com/52826683/178099645-2bd47ddc-e5a7-40c3-a3b6-0f9537cada08.jpg" width="275" height="600">
-
-### Recording System
-In order to make allow for volunteer events to be recorded rapidly, we have created a Telegram Bot that allows users to input a volunteer event code (unique for every event) that will quickly record the user's attendance and add the event to the user's profile. 
-
-Our prototype volunteer response capture prompt/response flow can be seen in the screenshots below
-
-<img src="https://user-images.githubusercontent.com/52826683/178111536-591083eb-0ed1-4b80-82c4-0abe98bd54d8.jpeg" width="275" height="600"> <img src="https://user-images.githubusercontent.com/52826683/178111548-2140426c-6378-4a3a-b3fa-5269e8c7e683.jpeg" width="275" height="600">
-
-### Volunteer Summary
-Through the bot, users can quickly generate a summary of the volunteering experience that the user has thus far. This is done by sending a request via the Telegram bot to the GivingBack database which will return all the volunteering information of the user in a neatly formatted message. Users will then be provided an option to generate a pdf file of their volunteering experiences, which can be submitted as an official document (for events such as scholarship applications).
-
-<img src="https://user-images.githubusercontent.com/52826683/178099727-8bc12c65-5fd4-4112-9bfe-325ee75ec9ef.jpg" width="275" height="600">
-
-### PDF generation
-The bot will be able to retrieve volunteering information of each user using their Telegram id, and convert this information into a neatly formatted PDF file which will be returned to the user. 
-![Screenshot 2022-07-09 171523](https://user-images.githubusercontent.com/52826683/178099695-b644d533-56ac-43be-a120-68e8c14ef901.jpg)
 
 ## Website Application
 Visitors will be able to visit our website, which will lead them to a beautiful landing page where they can sign up and look at the various volunteering opportunities that will be presented to them.
@@ -136,7 +133,54 @@ Upon clicking on a desired volunteering event, users will be brought to another 
 
 <img src="https://user-images.githubusercontent.com/52826683/178110899-6e738a49-eece-423a-846f-4f76f6c234f6.jpg" width="428" height="303">
 
-## Database
+# Our Extent of Implementation
+The extent to which we have implemented our solution in 24 hours will be documented in this section.
+
+## Frontend
+Our visualisation and initial prototype designs has largely been converted to React, powered by Bootstrap. Currently, our web application is able to support the following functions.
+
+### Landing Page
+The link to our landing page is http://givingback-sg.herokuapp.com/
+
+### User Signups and Logins
+Users will be able sign up and conduct logins through our web application.
+
+### Upload Profile Picture and Crop Profile Picture
+Users are able to upload profile pictures and also crop them properly to fit into a circular display.
+
+### View Profile Pages
+Users' own profile pages as well as the profile pages of other users can be viewed, with a display of their own profile details(name, email, phone number, telegram id, profile picture).
+
+### Clickable Tabs
+Users are able to click on the various tabs (Events, Community, Friends, History) to navigate to different pages of our web app.
+
+## Backend
+### Login Authentication
+Login authentication has been implemented via Supabase Auth, users are now able to create an account using their email account, whereby they will be required to authenticate their emails after they create their account.
+
+### Database
+The user's data will then be stored on Supabase, which allows us to verify that users are registered before logging in, and users that are not registered will not be able to use the site until they successfully register an account.
+
+## Telegram Bot
+Telegram bot was successfully implemented (although the bot has to be run locally). The bot is equipped with a clear and concise prompt/response flow which creates a user-friendly experience for all. Currently, the Telegram bot supports all of its main functions. The bot can be interacted with via @Giving_back_bot on Telegram.
+
+### Add or Record Volunteer Experiences
+In order to make allow for volunteer events to be recorded rapidly, we have created a Telegram Bot that allows users to input a volunteer event code (unique for every event) that will quickly record the user's attendance and add the event to the user's profile. 
+
+Our prototype volunteer response capture prompt/response flow can be seen in the screenshots below
+
+<img src="https://user-images.githubusercontent.com/52826683/178111536-591083eb-0ed1-4b80-82c4-0abe98bd54d8.jpeg" width="275" height="600"> <img src="https://user-images.githubusercontent.com/52826683/178111548-2140426c-6378-4a3a-b3fa-5269e8c7e683.jpeg" width="275" height="600">
+
+### Volunteer Experience Summary
+Through the bot, users can quickly generate a summary of the volunteering experience that the user has thus far. This is done by sending a request via the Telegram bot to the GivingBack database which will return all the volunteering information of the user in a neatly formatted message. Users will then be provided an option to generate a pdf file of their volunteering experiences, which can be submitted as an official document (for events such as scholarship applications).
+
+<img src="https://user-images.githubusercontent.com/52826683/178099727-8bc12c65-5fd4-4112-9bfe-325ee75ec9ef.jpg" width="275" height="600">
+
+### PDF Generation
+The bot will be able to retrieve volunteering information of each user using their Telegram id, and convert this information into a neatly formatted PDF file which will be returned to the user. 
+![Screenshot 2022-07-09 171523](https://user-images.githubusercontent.com/52826683/178099695-b644d533-56ac-43be-a120-68e8c14ef901.jpg)
+
+### Telegram Bot Database
 Currently, we are able to access a temporary database (Google Sheets) and update/retrieve data for unique users through the Telegram bot. Specifically, volunteering information is retrieved from the our Google Sheets database to be displayed to the user, and this information can then be used to generate a pdf file. Additionally, users are able to input a volunteer event code to record a new event in the database. (Currently, any code can be typed in, and a random number will be generated to select one out of nine different sample volunteer event details to be recorded in the database)
 
 For the sake of testing, users are provided with an option to register using their Telegram ID through the bot. This will then allow users to be able to upload and record new test volunteering activities, and generate pdf files of their test volunteering experiences. Ideally, we would have liked to have users to be able to register via typing in their Telegram ID on our website.
