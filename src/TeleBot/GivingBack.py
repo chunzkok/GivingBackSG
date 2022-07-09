@@ -10,9 +10,7 @@ import logging
 from fpdf import FPDF
 import random
 
-bot_token = "5560267266:AAFtVmeKIVHgWEbnJtdw4EuuHeOTLiyo8-0"
-
-# bot_token = os.environ.get('ezWeb_bot_token')
+bot_token = os.environ.get('ezWeb_bot_token')
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -98,23 +96,6 @@ def pdf_helper(update, context):
     filename= "Report" + str(docs_counter) + ".pdf"
     pdf.output(filename, dest='F')
     current_user[update.effective_chat.id]['filename'] = filename
-    """
-    Name: weop
-    
-    Total number of hours: 8
-    
-    Events:
-    
-    qwe - qweq - qe - qwe
-    qwe - qweq - qe - qwe
-    qwe - qweq - qe - qwe
-    
-    Awards:
-    
-    qwe - qweq - qe - qwe
-    qwe - qweq - qe - qwe
-    qwe - qweq - qe - qwe
-    """
 
 def generate_report(update, context, row, wks):
     global current_user
@@ -128,7 +109,7 @@ def generate_report(update, context, row, wks):
     to_return += wks.acell('C' + str(row)).value
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Total number of hours retrieved..")
-    to_return += "\n\nEvents\n\n"
+    to_return += "\n\nEvents:\n\n"
     to_return += wks.acell('D' + str(row)).value
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Events retrieved..")
