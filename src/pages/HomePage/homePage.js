@@ -290,4 +290,44 @@ const AboutUsSection = () => {
   );
 };
 
-const FAQSection = () => {};
+const FAQSection = () => {
+  return (
+    <Row>
+      <Row>
+        <h1
+          className="py-3"
+          style={{ fontFamily: "Nunito Sans", fontWeight: "bold" }}
+        >
+          FAQ
+        </h1>
+      </Row>
+
+      <Row className="text-start mx-auto py-2" style={{ width: "85%" }}>
+        <h4>How can we obtain our contribution records?</h4>
+        <p className="fs-5">
+          You can request for a PDF file from or Telegram bot to certify the
+          hours of volunteering you have done.
+        </p>
+      </Row>
+
+      <Row className="text-start mx-auto py-2" style={{ width: "85%" }}>
+        <h4>How do we know which activities are eligible for VIA hours?</h4>
+        <p className="fs-5">
+          We tag the volunteering activities that are VIA-claimable. Hence, you
+          can check by looking out for the VIA-claimable tags or by filtering
+          out all the non-claimable activities.
+        </p>
+      </Row>
+
+      <Row className="text-start mx-auto py-2" style={{ width: "85%" }}>
+        <h4>My hours are not reflected in my report correctly.</h4>
+        <p className="fs-5">
+          You can indicate any issues relating to the lack of hours from an
+          activity by flagging it.
+        </p>
+      </Row>
+
+      <img src={srcImgLink("home_faqbottom.png")} alt="Decoration" />
+    </Row>
+  );
+};
