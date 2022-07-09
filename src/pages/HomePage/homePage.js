@@ -45,7 +45,11 @@ const IntroSection = () => {
         </Col>
         <Col xs={7} className="d-flex justify-content-end align-items-center">
           <div>
-            <Button className="mx-2 rounded-3" href="/browse">
+            <Button
+              className="mx-2 rounded-3"
+              href="/browse"
+              style={{ fontSize: "1.2vw" }}
+            >
               Browse Events
             </Button>
           </div>
@@ -54,6 +58,7 @@ const IntroSection = () => {
               variant="secondary"
               className="mx-2 rounded-3"
               href="/community"
+              style={{ fontSize: "1.2vw" }}
             >
               Community
             </Button>
@@ -62,7 +67,7 @@ const IntroSection = () => {
               <Image
                 src="/images/avatar_default.png"
                 alt="Avatar"
-                style={{ height: "45px" }}
+                style={{ height: "5vw" }}
                 className="px-3"
                 roundedCircle
               />
