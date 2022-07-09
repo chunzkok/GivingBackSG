@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# LifeHack 2022 Team ExceptionallyGoodException
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Giving Back - Question 1
+Question Statement:
+Volunteering is one of the best ways to give back to our community. What creative ideas do you have to make volunteering easier, widespread, and more beneficial to those in need?
 
-## Available Scripts
+## Motivation
+We chose this question because we realised that we had the shared experience of having to go through unnecessary hurdles when wanting to volunteer in the past. We have documented common user stories below.
 
-In the project directory, you can run:
+## User Stories
+1. I want to volunteer but I am not sure how to look for volunteering opportunities that are suitable for me. 
+2. I want to volunteer with friends but all opportunities require individual signups, and we are not sure if we are going to be able to volunteer together as a group.
+3. I want to be able to keep track of all my volunteering records and add them to my portfolio easily.
+4. I want to be able to document my new self-directed volunteering experiences, but I had to go through a tedious volunteer-verification process with my school/organisation.
+5. I want to be able to receive accolades for my volunteering efforts.
 
-### `npm start`
+## Our Solution
+We have decided to create a centralised volunteering platform where visitors will be able to quickly navigate to volunteering opportunities that best suits them. This means that visitors will be quickly able to filter events that are tailored to their preferred beneficiaries (such as the elderly, children, or animals).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Telegram Bot
+To augment the effectiveness of the whole system, we have created a Telegram bot that users will be able to interact with to record their new volunteering efforts, as well as to generate a summary of their volunteering efforts thus far.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Recording System
+In order to make allow for volunteer events to be recorded rapidly, we have created a Telegram Bot that allows users to input a volunteer event code (unique for every event) that will quickly record the user's attendance and add the event to the user's profile. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Languages - Framework
 
-### `npm run build`
+<img src="https://user-images.githubusercontent.com/52826683/177026366-27647836-2b4e-4af6-ab7a-00ec5a67ecda.svg" width="50" height="50"> <img src="https://user-images.githubusercontent.com/52826683/177026379-786e8b79-67f8-4383-baf5-4ff8c656d904.svg" width="50" height="50">
+<img src="https://user-images.githubusercontent.com/52826683/177026381-417f1eb2-8487-4103-9a8d-88351f62f176.svg" width="50" height="50">
+<img src="https://user-images.githubusercontent.com/52826683/177026383-48634a68-82e6-42f2-bcb0-1242854b6152.svg" width="50" height="50">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Python | React | JavaScript | Node.js
