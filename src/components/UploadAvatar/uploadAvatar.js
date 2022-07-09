@@ -183,33 +183,30 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
         <div className={`${avatarStyle["avatarmaster"]} border border-dark`}>
           <Spinner animation="border" />
         </div>
-      ) : (
+      ) : avatarUrl ? (
         <img
           className={`${avatarStyle["avatarmaster"]} border border-dark`}
-          src={avatarUrl || "images/img_avatarDefault.jpg"}
-          alt={"avatar" || "default_avatar"}
+          src={avatarUrl}
+          alt={"avatar"}
         />
-      )}
-
-      <div
-        className={`${avatarStyle["button-master"]} border-1px-santas-gray `}
-      >
+      ) : (
         <label
           htmlFor="single"
-          className={`${avatarStyle["upload-label"]} inter-normal-licorice-20px`}
+          className={`${avatarStyle["avatarmaster"]} border border-dark`}
         >
-          {uploading ? "Uploading" : "Upload"}
+          Insert Photo
         </label>
-        <input
-          className={avatarStyle["hidden-file-input"]}
-          type="file"
-          id="single"
-          accept="image/*"
-          onClick={(e) => (e.target.value = null)}
-          onChange={uploadAvatar}
-          disabled={uploading}
-        />
-      </div>
+      )}
+
+      <input
+        className={avatarStyle["hidden-file-input"]}
+        type="file"
+        id="single"
+        accept="image/*"
+        onClick={(e) => (e.target.value = null)}
+        onChange={uploadAvatar}
+        disabled={uploading}
+      />
 
       <Modal size="lg" show={modalShow} onHide={() => setModalShow(false)}>
         <Modal.Title>

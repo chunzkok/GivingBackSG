@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import HomePageStyles from "./homePage.module.css";
 import Footer from "../../components/Footer/footer";
+import AuthContext from "../../utils/AuthContext";
+import Skeleton from "react-loading-skeleton";
 
 const HomePage = () => {
   return (
@@ -27,6 +29,7 @@ const srcImgLink = (imgName) => {
 };
 
 const IntroSection = () => {
+  const { authData, authLoading } = useContext(AuthContext);
   return (
     <Row
       style={{
@@ -54,24 +57,36 @@ const IntroSection = () => {
             </Button>
           </div>
           <div>
-            <Button
-              variant="secondary"
-              className="mx-2 rounded-3"
-              href="/community"
-              style={{ fontSize: "calc(16px + 0.2vw)" }}
-            >
-              Community
-            </Button>
-
-            <a href="/login">
-              <Image
-                src="/images/avatar_default.png"
-                alt="Avatar"
-                style={{ height: "5vw" }}
-                className="px-3"
-                roundedCircle
-              />
-            </a>
+            {authLoading ? (
+              <>
+                <Skeleton height="24px" />
+                <Skeleton height="5vw" width="5vw" circle />
+              </>
+            ) : (
+              <>
+                <Button
+                  variant="secondary"
+                  className="mx-2 rounded-3"
+                  href={authData.logged_in ? "/community" : "/login"}
+                  style={{ fontSize: "calc(16px + 0.2vw)" }}
+                >
+                  {authData.logged_in ? "Community" : "Login"}
+                </Button>
+                <a href={authData.logged_in ? "/profile" : "/login"}>
+                  <Image
+                    src={
+                      authData.logged_in
+                        ? authData.avatar_url
+                        : "/images/avatar_default.png"
+                    }
+                    alt="Avatar"
+                    style={{ height: "5vw" }}
+                    className="px-3"
+                    roundedCircle
+                  />
+                </a>
+              </>
+            )}
           </div>
         </Col>
       </Row>

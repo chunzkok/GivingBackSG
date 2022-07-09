@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import SideNavbar from "../../components/SideNavbar/sideNavbar";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import UploadAvatar from "../../components/UploadAvatar/uploadAvatar";
 
 const RegisterPage = () => {
+  const [avatarData, setAvatarData] = useState(null);
+
   const handleRegister = async (e) => {
     e.preventDefault();
     console.log(e);
@@ -13,7 +16,8 @@ const RegisterPage = () => {
 
   return (
     <SideNavbar activePath="/register">
-      <Form className="py-5 px-4" onSubmit={handleRegister}>
+      <UploadAvatar />
+      <Form className="p-4" onSubmit={handleRegister}>
         <Form.Group as={Row} className="mb-3" controlId="formName">
           <Form.Label column sm={3} className="d-flex flex-row">
             Name: <p className="text-danger">*</p>
