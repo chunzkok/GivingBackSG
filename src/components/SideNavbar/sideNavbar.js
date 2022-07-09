@@ -18,11 +18,20 @@ import {
   faUserGroup,
   faClockRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import supabase from "../../config/supabase";
 
 const SideNavbar = ({ children, activePath }) => {
   const { authData, authLoading } = useContext(AuthContext);
 
-  const signOutHandler = async () => {};
+  const signOutHandler = async () => {
+    try {
+      const { error } = await supabase.auth.signOut();
+      if (error) throw error;
+      alert("Signed out successfully!");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   return (
     <Container className="d-flex flex-row p-0" fluid>
@@ -57,6 +66,7 @@ const SideNavbar = ({ children, activePath }) => {
                 <Image
                   src={authData.avatar_url}
                   className="w-50 mx-auto py-2"
+                  roundedCircle
                 />
                 <p>{authData.name}</p>
               </>

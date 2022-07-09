@@ -38,12 +38,15 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
 
   useEffect(() => {
     if (!url) return;
-
-    let { publicURL, error } = supabase.storage
-      .from("avatars")
-      .getPublicUrl(url);
-    if (error) alert(error.message);
-    setAvatarUrl(publicURL);
+    if (url.includes("blob")) {
+      setAvatarUrl(url);
+    } else {
+      let { publicURL, error } = supabase.storage
+        .from("avatars")
+        .getPublicUrl(url);
+      if (error) alert(error.message);
+      setAvatarUrl(publicURL);
+    }
   }, [url]);
 
   const uploadAvatar = async (event) => {
@@ -102,57 +105,8 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
     ctx.restore();
   }
 
-  const uploadImage = async (canvas) => {
-    canvas.toBlob(
-      async (blob) => {
-        if (!blob) {
-          //reject(new Error('Canvas is empty'));
-          console.error("Canvas is empty");
-          return;
-        }
-        const fileName = `${Math.random()}.jpg`;
-        const file = new File([blob], fileName, { type: "image/jpeg" });
-
-        try {
-          // Delete previous avatar from Supabase storage
-          setUploading(true);
-          if (avatarUrl) {
-            const oldFileName = avatarUrl.split("/").at(-1);
-            let { error } = await supabase.storage
-              .from("avatars")
-              .remove([oldFileName]);
-            if (error) throw error;
-          }
-
-          // Upload cropped image
-          let { error } = await supabase.storage
-            .from("avatars")
-            .upload(fileName, file);
-          if (error) throw error;
-
-          // Update avatar_url in profiles
-          let { error: avatarError } = await supabase
-            .from("profiles")
-            .update({ avatar_url: fileName })
-            .eq("id", supabase.auth.user().id);
-          if (avatarError) throw avatarError;
-
-          let { publicURL, error: getURLError } = supabase.storage
-            .from("avatars")
-            .getPublicUrl(fileName);
-          if (getURLError) throw getURLError;
-
-          setAvatarUrl(publicURL);
-          onUpload(fileName);
-        } catch (error) {
-          alert(error.message);
-        } finally {
-          setUploading(false);
-        }
-      },
-      "image/jpeg",
-      1
-    );
+  const uploadImage = (canvas) => {
+    canvas.toBlob((blob) => onUpload(blob), "image/jpeg", 1);
   };
 
   useDebounceEffect(
@@ -186,6 +140,7 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
       ) : avatarUrl ? (
         <img
           className={`${avatarStyle["avatarmaster"]} border border-dark`}
+          onClick={() => document.getElementById("single").click()}
           src={avatarUrl}
           alt={"avatar"}
         />
@@ -214,7 +169,7 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
             Crop Profile Picture
           </Modal.Header>
         </Modal.Title>
-        <Modal.Body className="d-flex justify-center">
+        <Modal.Body className="d-flex justify-center mx-auto">
           <ReactCrop
             crop={crop}
             ruleOfThirds
