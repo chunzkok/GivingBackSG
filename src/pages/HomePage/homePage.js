@@ -94,12 +94,14 @@ const WhyGBSSection = () => {
     <Row className="bg-dark px-2 px-sm-5" fluid>
       {/* << Why Minerva >> Header */}
       <Row className="py-5">
-        <h1 className={`text-light text-center`}>WHY GIVING BACK SG</h1>
+        <h1 className={`text-light text-center`} style={{ fontSize: "3vw" }}>
+          WHY GIVING BACK SG
+        </h1>
       </Row>
 
       {/* Reason 1: Direct Matching */}
       <Row className="justify-center">
-        <Col xs={12} md={5} className="d-flex">
+        <Col xs={12} md={5} className="d-flex justify-content-center">
           <img
             src={srcImgLink("home_locationpin.png")}
             alt="Location Pin"
@@ -137,7 +139,7 @@ const WhyGBSSection = () => {
         <Col
           xs={12}
           md={6}
-          className="d-flex justify-content-end align-center p-5"
+          className="d-flex justify-content-center align-center p-5"
         >
           <img
             src={srcImgLink("home_highfive.png")}
@@ -176,7 +178,11 @@ const WhyGBSSection = () => {
 
       {/* Reason 3: Highly Customisable*/}
       <Row className="justify-center pb-5">
-        <Col xs={12} md={6} className="d-flex justify-center align-center">
+        <Col
+          xs={12}
+          md={6}
+          className="d-flex justify-content-center align-center"
+        >
           <img
             src={srcImgLink("home_timer.png")}
             alt="Timer"
@@ -234,54 +240,50 @@ const AboutUsSection = () => {
         <Row className="py-4">
           <Col md={6} className="d-flex">
             <Image
-              src="/images/avatar_default.png"
+              src={srcImgLink("home_sean.jpg")}
               className="w-50"
               roundedCircle
             />
-            <Col className="ps-3 py-2 d-flex flex-column align-items-start">
-              <h3>NAME</h3>
-              <h5>SHORT TITLE</h5>
-              <p>DESCRIPTION</p>
+            <Col className="ps-3 py-2 d-flex flex-column align-items-center my-auto">
+              <h3>Sean Manik</h3>
+              <h5>Y1 NUS CS</h5>
             </Col>
           </Col>
 
           <Col md={6} className="d-flex">
             <Image
-              src="/images/avatar_default.png"
+              src={srcImgLink("home_shaun.jpg")}
               className="w-50"
               roundedCircle
             />
-            <Col className="ps-3 py-2 d-flex flex-column align-items-start">
-              <h3>NAME</h3>
-              <h5>SHORT TITLE</h5>
-              <p>DESCRIPTION</p>
+            <Col className="ps-3 py-2 d-flex flex-column align-items-center my-auto">
+              <h3>Shaun Tan</h3>
+              <h5>Y1 NUS BZA</h5>
             </Col>
           </Col>
         </Row>
         <Row className="py-4">
           <Col md={6} className="d-flex">
             <Image
-              src="/images/avatar_default.png"
+              src={srcImgLink("home_peigeng.jpg")}
               className="w-50"
               roundedCircle
             />
-            <Col className="ps-3 py-2 d-flex flex-column align-items-start">
-              <h3>NAME</h3>
-              <h5>SHORT TITLE</h5>
-              <p>DESCRIPTION</p>
+            <Col className="ps-3 py-2 d-flex flex-column align-items-center my-auto">
+              <h3>Su Peigeng</h3>
+              <h5>Y1 NUS CS</h5>
             </Col>
           </Col>
 
           <Col md={6} className="d-flex">
             <Image
-              src="/images/avatar_default.png"
+              src={srcImgLink("home_chunzhi.jpg")}
               className="w-50"
               roundedCircle
             />
-            <Col className="ps-3 py-2 d-flex flex-column align-items-start">
-              <h3>NAME</h3>
-              <h5>SHORT TITLE</h5>
-              <p>DESCRIPTION</p>
+            <Col className="ps-3 py-2 d-flex flex-column align-items-center my-auto">
+              <h3>Kok Chun Zhi</h3>
+              <h5>Y1 NUS CS</h5>
             </Col>
           </Col>
         </Row>
