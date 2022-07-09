@@ -27,7 +27,6 @@ function centerAspectCrop(mediaWidth, mediaHeight, aspect) {
 
 const UploadAvatar = ({ url, onUpload, loading }) => {
   const [avatarUrl, setAvatarUrl] = useState(null);
-  const [uploading, setUploading] = useState(false);
   const [tempAvatar, setTempAvatar] = useState(null);
   const [modalShow, setModalShow] = useState(false);
   const [crop, setCrop] = useState();
@@ -133,7 +132,7 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
 
   return (
     <div className="d-flex flex-column align-center ">
-      {uploading || loading ? (
+      {loading ? (
         <div className={`${avatarStyle["avatarmaster"]} border border-dark`}>
           <Spinner animation="border" />
         </div>
@@ -160,7 +159,6 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
         accept="image/*"
         onClick={(e) => (e.target.value = null)}
         onChange={uploadAvatar}
-        disabled={uploading}
       />
 
       <Modal size="lg" show={modalShow} onHide={() => setModalShow(false)}>
@@ -196,10 +194,8 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
             />
           )}
         </Modal.Body>
-        <Modal.Footer className={uploading && "d-flex justify-center"}>
-          {uploading ? (
-            <Spinner animation="border" />
-          ) : (
+        <Modal.Footer className={"d-flex justify-center"}>
+          {
             <>
               <Button
                 variant="outline-secondary"
@@ -216,7 +212,7 @@ const UploadAvatar = ({ url, onUpload, loading }) => {
                 Confirm
               </Button>
             </>
-          )}
+          }
         </Modal.Footer>
       </Modal>
     </div>
