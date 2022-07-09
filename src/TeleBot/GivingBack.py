@@ -56,19 +56,25 @@ def get_volunteering_report(update, context):
     row = 1
     buttons = [[InlineKeyboardButton("Convert into pdf file.", callback_data="convert_report_to_pdf")],
                [InlineKeyboardButton("Exit bot.", callback_data="reset")]]
-    while wks.acell('A' + str(row)).value != str(tg_id):
+    curr = wks.acell('A' + str(row)).value 
+    while curr is not None and curr != str(tg_id):
         row += 1
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="Finding your particulars...")
-    volunteering_report = generate_report(update, context, row, wks)
-    if volunteering_report == "No information found.":
+        curr = wks.acell('A' + str(row)).value
+    if curr is None:
         context.bot.send_message(chat_id=update.effective_chat.id,
-                                 text="No information found. We hope to have you volunteer with us soon! :)")
-        reset(update, context)
+                                 text="Your Telegram ID is not registered. Please click on 'start' and choose the Register Telegram ID option.")
     else:
         context.bot.send_message(chat_id=update.effective_chat.id,
-                             text=volunteering_report,
-                             reply_markup=InlineKeyboardMarkup(buttons))
+                             text="Finding your particulars...")
+        volunteering_report = generate_report(update, context, row, wks)
+        if volunteering_report == "No information found.":
+            context.bot.send_message(chat_id=update.effective_chat.id,
+                                     text="No information found. We hope to have you volunteer with us soon! :)")
+            reset(update, context)
+        else:
+            context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text=volunteering_report,
+                                 reply_markup=InlineKeyboardMarkup(buttons))
 
 def convert_report_to_pdf(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id,
@@ -128,10 +134,13 @@ def generate_report(update, context, row, wks):
 def submit_volunteering_event_code(update, context):
     global current_user
     if current_user.get(update.effective_chat.id) is None:
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Your Telegram ID is not registered. Please click on 'start' and choose the Register Telegram ID option.")
+    else:
         current_user[update.effective_chat.id] = {}
-    current_user[update.effective_chat.id]['state'] = 'submit_volunteering_event_code'
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="Please submit your volunteer event code and receive your hours!")
+        current_user[update.effective_chat.id]['state'] = 'submit_volunteering_event_code'
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Please submit your volunteer event code and receive your hours!")
 
 def confirm_volunteer_hours_added(update, context, hours, event_details):
     event_info = event_details.split(" -")
@@ -140,8 +149,12 @@ def confirm_volunteer_hours_added(update, context, hours, event_details):
     global wks
     tg_id = update.effective_chat.id
     row = 1
-    while wks.acell('A' + str(row)).value != str(tg_id):
+    curr = wks.acell('A' + str(row)).value
+    while curr is not None and curr != str(tg_id):
         row += 1
+        curr = wks.acell('A' + str(row)).value
+    if curr is None:
+        
     context.bot.send_message(chat_id=update.effective_chat.id,
                              text="Adding " + str(hours) + " hours...")
     events = wks.acell('D' + str(row)).value
@@ -280,3 +293,4 @@ dispatcher.add_handler(query_handler)
 
 updater.start_polling()
 updater.idle()
+
