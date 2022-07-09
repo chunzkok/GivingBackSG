@@ -15,10 +15,12 @@ Python | React | JavaScript | Node.js
     + [Recording System](#recording-system)
     + [Volunteer Summary](#volunteer-summary)
     + [PDF generation](#pdf-generation)
-  * [Planned Website Features](#planned-website-features)
+  * [Website Application](#planned-website-features)
     + [Filter by Preferred Beneficiaries](#filter-by-preferred-beneficiaries)
     + [Add Telegram ID](#add-telegram-id)
     + [Group Registration](#group-registration)
+    + [Volunteer Hours Leaderboard](#volunteer-hours-leaderboard)
+    + [Share Volunteer Experiences](#share-volunteer-experiences)
 - [Application Prototype and Visualisation](#application-prototype-and-visualisation)
   * [Registration Page](#registration-page)
   * [Login Page](#login-page)
@@ -75,7 +77,7 @@ Through the bot, users can quickly generate a summary of the volunteering experi
 The bot will be able to retrieve volunteering information of each user using their Telegram id, and convert this information into a neatly formatted PDF file which will be returned to the user. 
 ![Screenshot 2022-07-09 171523](https://user-images.githubusercontent.com/52826683/178099695-b644d533-56ac-43be-a120-68e8c14ef901.jpg)
 
-## Planned Website Features
+## Website Application
 Visitors will be able to visit our website, which will lead them to a beautiful landing page where they can sign up and look at the various volunteering opportunities that will be presented to them.
 
 ### Filter by Preferred Beneficiaries
@@ -86,6 +88,12 @@ Users will be able to link their Telegram account to their user profile, which w
 
 ### Group Registration
 Users will be able to join Groups, where they are treated as a collective. Groups will then be able to sign up for volunteering events together, where organisers will be presented with the option to either accept the entire Group or reject the Group entirely, thus ensuring that members of a Group will be able to volunteer together. This will solve a huge problem for volunteers who hope to volunteer with their friends but are afraid of not being assigned to volunteer in the same timeslot/event.
+
+### Volunteer Hours Leaderboard
+We intend to gamify the process of volunteering by creating a leaderboard, which incentivises users to volunteer more. They will be able to measure their rankings against their friends, as well as against all users of the platform.
+
+### Share Volunteer Experiences
+Volunteers will be able to create Experiences, which functions like posts, where they are able to share their thoughts and reflections following a volunteer event. This can help potential volunteers to get a better idea of how what their own experiences may be like.
 
 # Application Prototype and Visualisation
 
