@@ -28,8 +28,6 @@ Python | React | JavaScript | Node.js
   * [Singpass Log-in](#singpass-log-in)
   * [Connecting to Official School Volunteering Ecosystems](#connecting-to-official-school-volunteering-ecosystems)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 # Giving Back - Question 1
 Question Statement:
 Volunteering is one of the best ways to give back to our community. What creative ideas do you have to make volunteering easier, widespread, and more beneficial to those in need?
