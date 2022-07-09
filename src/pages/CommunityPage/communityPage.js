@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const CommunityPage = () => {
-    return <div>
-        CommunityPage
-    </div>;
+  return <SideNavbar activePath="/community">hi</SideNavbar>;
 };
 
 export default CommunityPage;

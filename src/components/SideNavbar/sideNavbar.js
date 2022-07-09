@@ -3,6 +3,7 @@ import SidebarStyles from "./sideNavbar.module.css";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
+import Image from "react-bootstrap/Image";
 import { Calendar2Heart, BoxArrowInLeft } from "react-bootstrap-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -27,6 +28,13 @@ const SideNavbar = ({ children, activePath }) => {
           variant="pills"
           fill
         >
+          <Nav.Item className="d-flex flex-column mx-auto py-3 ">
+            <Image
+              src="/images/avatar_default.png"
+              className="w-50 mx-auto py-2"
+            />
+            <p>User</p>
+          </Nav.Item>
           <Nav.Link
             href="/browse"
             className="d-flex justify-content-center align-items-center"

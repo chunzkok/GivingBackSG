@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import SideNavbar from "../../components/SideNavbar/sideNavbar";
 
 const FriendsPage = () => {
-    return <div>
-        FriendsPage
-    </div>;
+  return <SideNavbar activePath="/friends">hi</SideNavbar>;
 };
 
 export default FriendsPage;
