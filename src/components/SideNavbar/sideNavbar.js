@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../utils/AuthContext";
 import SidebarStyles from "./sideNavbar.module.css";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
+import Spinner from "react-bootstrap/Spinner";
+import Skeleton from "react-loading-skeleton";
 import { Calendar2Heart, BoxArrowInLeft } from "react-bootstrap-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,6 +16,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const SideNavbar = ({ children, activePath }) => {
+  const { authData, authLoading } = useContext(AuthContext);
+  console.log(authData);
   return (
     <Container className="d-flex flex-row p-0" fluid>
       <Col
@@ -24,7 +29,7 @@ const SideNavbar = ({ children, activePath }) => {
       >
         <Nav
           activeKey={activePath}
-          className="flex-column"
+          className="flex-column position-relative"
           variant="pills"
           fill
         >
@@ -36,11 +41,20 @@ const SideNavbar = ({ children, activePath }) => {
             />
           </Nav.Link>
           <Nav.Item className="d-flex flex-column mx-auto py-3 ">
-            <Image
-              src="/images/avatar_default.png"
-              className="w-50 mx-auto py-2"
-            />
-            <p>User</p>
+            {authLoading ? (
+              <>
+                <Skeleton circle width="13vw" height="13vw" className="py-2" />
+                <Skeleton width="50%" height="20px" />
+              </>
+            ) : (
+              <>
+                <Image
+                  src={authData.avatar_url}
+                  className="w-50 mx-auto py-2"
+                />
+                <p>{authData.name}</p>
+              </>
+            )}
           </Nav.Item>
           <Nav.Link
             href="/browse"

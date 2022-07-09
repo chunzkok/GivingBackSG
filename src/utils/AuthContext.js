@@ -6,8 +6,8 @@ export const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useState({
     logged_in: false,
     id: null,
-    name: null,
-    avatar_url: null,
+    name: "Guest",
+    avatar_url: "/images/avatar_default.png",
     telegram: null,
     phone: null,
   });

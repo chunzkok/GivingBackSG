@@ -50,10 +50,11 @@ function App() {
       if (!session)
         return {
           logged_in: false,
-          permissions: 0,
-          username: null,
-          avatar_url: null,
           id: null,
+          name: "Guest",
+          telegram: null,
+          phone: null,
+          avatar_url: "/images/avatar_default.png",
         };
 
       const { user } = session;
