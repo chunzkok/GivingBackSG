@@ -178,6 +178,12 @@ Through the bot, users can quickly generate a summary of the volunteering experi
 
 ### PDF Generation
 The bot will be able to retrieve volunteering information of each user using their Telegram id, and convert this information into a neatly formatted PDF file which will be returned to the user. 
+The user will prompt for the bot to convert the information into a pdf file. The information is then processed and then the pdf file will then be sent by the bot to the user.
+
+<img src="https://user-images.githubusercontent.com/52826683/178121382-e50eaa06-8c60-40e4-af88-65bf6a330943.jpeg" width="275" height="600">
+
+Formatting of the pdf file:
+<br><br>
 ![Screenshot 2022-07-09 171523](https://user-images.githubusercontent.com/52826683/178099695-b644d533-56ac-43be-a120-68e8c14ef901.jpg)
 
 ### Telegram Bot Database
