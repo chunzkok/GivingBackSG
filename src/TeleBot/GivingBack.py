@@ -154,23 +154,25 @@ def confirm_volunteer_hours_added(update, context, hours, event_details):
         row += 1
         curr = wks.acell('A' + str(row)).value
     if curr is None:
-        
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="Adding " + str(hours) + " hours...")
-    events = wks.acell('D' + str(row)).value
-    num_hours = wks.acell('C' + str(row)).value
-    new_hours = int(num_hours) + hours
-    if events is None:
-        events = ""
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Your Telegram ID is not registered. Please click on 'start' and choose the Register Telegram ID option.")
     else:
-        events += "\n\n"
-    events += event_details
-    wks.update('D' + str(row), events)
-    wks.update('C' + str(row), str(new_hours))
-    context.bot.send_message(chat_id=update.effective_chat.id,
-                             text="Done! " + str(hours) + " hours successfully added for event: " + event_info[0])
-    reset(update, context)
-
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Adding " + str(hours) + " hours...")
+        events = wks.acell('D' + str(row)).value
+        num_hours = wks.acell('C' + str(row)).value
+        new_hours = int(num_hours) + hours
+        if events is None:
+            events = ""
+        else:
+            events += "\n\n"
+        events += event_details
+        wks.update('D' + str(row), events)
+        wks.update('C' + str(row), str(new_hours))
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Done! " + str(hours) + " hours successfully added for event: " + event_info[0])
+        reset(update, context)
+        
 def register_telegram_id(update, context):
     global current_user
     row = 1
