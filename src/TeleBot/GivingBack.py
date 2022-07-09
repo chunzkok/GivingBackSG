@@ -10,7 +10,9 @@ import logging
 from fpdf import FPDF
 import random
 
-bot_token = os.environ.get('ezWeb_bot_token')
+bot_token = "5560267266:AAFtVmeKIVHgWEbnJtdw4EuuHeOTLiyo8-0"
+
+# bot_token = os.environ.get('ezWeb_bot_token')
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
@@ -22,10 +24,12 @@ sh = sa.open('givingback.sg database')
 wks = sh.worksheet("Sheet1")
 current_user = {}
 docs_counter = 1001
+
 def start(update, context):
     buttons = [[InlineKeyboardButton("How may I start?", callback_data="info")],
                [InlineKeyboardButton("Get my summarised volunteering report.", callback_data="get_volunteering_report")],
-               [InlineKeyboardButton("Submit volunteer event code.", callback_data="submit_volunteering_event_code")]]
+               [InlineKeyboardButton("Submit volunteer event code.", callback_data="submit_volunteering_event_code")],
+               [InlineKeyboardButton("Register my Telegram ID", callback_data="register_telegram_id")]]
     welcome_text = "Welcome to GivingBack.sg, a centralised volunteering platform. What would you like me to help you out with?"
     context.bot.send_message(chat_id=update.effective_chat.id, text=welcome_text,
                              reply_markup=InlineKeyboardMarkup(buttons))
@@ -154,6 +158,52 @@ def confirm_volunteer_hours_added(update, context, hours, event_details):
                              text="Done! " + str(hours) + " hours successfully added for event: " + event_info[0])
     reset(update, context)
 
+def register_telegram_id(update, context):
+    global current_user
+    row = 1
+    is_registered = False
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="Checking if your account is already registered...")
+    while wks.acell('A' + str(row)).value is not None:
+        if wks.acell('A' + str(row)).value == str(update.effective_chat.id):
+            print("Here5")
+            context.bot.send_message(chat_id=update.effective_chat.id,
+                                     text="This account has already been registered!")
+            is_registered = True
+            break
+        else:
+            print("Here")
+            row += 1
+    if not is_registered:
+        current_user[update.effective_chat.id] = {}
+        current_user[update.effective_chat.id]['state'] = 'register_name'
+        current_user[update.effective_chat.id]['row'] = row
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Please input your name.")
+    else:
+        reset(update, context)
+
+def register_name_confirmation(update, context):
+    buttons = [[InlineKeyboardButton("Confirm", callback_data="confirm_registration")],
+               [InlineKeyboardButton("Re-enter name", callback_data="re_enter_name")],
+               [InlineKeyboardButton("Exit bot", callback_data="reset")]]
+    name = current_user[update.effective_chat.id]['name']
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="Please confirm that you have input the right name: " + name,
+                             reply_markup=InlineKeyboardMarkup(buttons))
+
+def confirm_register_telegram(update, context):
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="Sending data...")
+    row = current_user[update.effective_chat.id]['row']
+    wks.update('A' + str(row), update.effective_chat.id)
+    wks.update('B' + str(row), current_user[update.effective_chat.id]['name'])
+    wks.update('C' + str(row), "0")
+    context.bot.send_message(chat_id=update.effective_chat.id,
+                             text="Done!")
+    del current_user[update.effective_chat.id]
+    reset(update, context)
+
 def reset(update, context):
     global current_user
     current_user[update.effective_chat.id] = {}
@@ -175,11 +225,19 @@ def inline_query(update, context):
         submit_volunteering_event_code(update, context)
     elif query == "convert_report_to_pdf":
         convert_report_to_pdf(update, context)
+    elif query == "register_telegram_id":
+        register_telegram_id(update, context)
+    elif query == "re_enter_name":
+        context.bot.send_message(chat_id=update.effective_chat.id,
+                                 text="Please enter your name")
+    elif query == "confirm_registration":
+        confirm_register_telegram(update, context)
     elif query == "reset":
         reset(update, context)
 
 
 def message_handler(update, context):
+    global current_user
     if current_user[update.effective_chat.id].get('state') == 'submit_volunteering_event_code':
         context.bot.send_message(chat_id=update.effective_chat.id,
                                  text="Processing data... Please wait...")
@@ -202,6 +260,9 @@ def message_handler(update, context):
         # event_info = event.json()
         # confirm_volunteer_hours_added(update, context, event_info['hours'], event_info['details'])
         confirm_volunteer_hours_added(update, context, hours, event_details)
+    elif current_user[update.effective_chat.id]['state'] == 'register_name':
+         current_user[update.effective_chat.id]['name'] = update.message.text
+         register_name_confirmation(update, context)
     else:
         context.bot.send_message(chat_id=update.effective_chat.id,
                                  text="I'm not sure what you're looking for.. please be more specific.")
