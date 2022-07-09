@@ -84,6 +84,9 @@ Upon clicking on a desired volunteering event, users will be brought to another 
 # Future Improvements and Extensions
 We believe that our application has the potential to become integrated with the heart of Singapore's volunteering ecosystem. Users can be linked up to the platform from the very beginning of their education journey and use it to track their lifetime's volunteering work.
 
+## Database Migration
+From the short time that we've worked with the project, it became very apprent very early on that a relational database will work much better. Given more time, we would have selected Supabase as our database of choice to launch this application.
+
 ## Singpass Log-in
 If we are able to secure a Singpass log in from users, volunteers will be able to quickly onboard themselves onto our application, and use tie their volunteering records to their Singpass account, thus making information verification extremely efficient and effective.
 
