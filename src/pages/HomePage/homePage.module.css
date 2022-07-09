@@ -1,0 +1,7 @@
+.lightpink-text {
+    color: #FEEBEB;
+}
+
+:global(.font-inter) {
+    font-family: "Inter";
+}
