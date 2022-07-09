@@ -40,7 +40,7 @@ const Bar = (props) => {
     >
       {/* Copyright Text */}
       <Col
-        className="d-flex justify-center align-center text-center text-md-start py-2"
+        className="d-flex justify-content-center align-center text-center text-md-start py-2"
         xs={12}
         md={3}
       >
@@ -57,7 +57,7 @@ const Bar = (props) => {
 function Links() {
   return (
     <Col
-      className={`${footerBarStyles.links} justify-center py-2 d-flex flex-wrap`}
+      className={`${footerBarStyles.links} justify-content-center py-2 d-flex flex-wrap`}
       xs={12}
       md={6}
     >
@@ -86,7 +86,7 @@ function SocialMedia(props) {
   const { iconInstagram, iconTwitter, iconFacebook } = props.icons;
   return (
     <Col
-      className="d-flex flex-row gap-4 align-center justify-center py-2"
+      className="d-flex flex-row gap-4 align-center justify-content-center py-2"
       xs={12}
       md={3}
     >

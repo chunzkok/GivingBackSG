@@ -45,10 +45,16 @@ const IntroSection = () => {
         </Col>
         <Col xs={7} className="d-flex justify-content-end align-items-center">
           <div>
-            <Button className="mx-2 rounded-3">Browse Events</Button>
+            <Button className="mx-2 rounded-3" href="/browse">
+              Browse Events
+            </Button>
           </div>
           <div>
-            <Button variant="secondary" className="mx-2 rounded-3">
+            <Button
+              variant="secondary"
+              className="mx-2 rounded-3"
+              href="/community"
+            >
               Community
             </Button>
 
@@ -105,7 +111,7 @@ const WhyGBSSection = () => {
           <img
             src={srcImgLink("home_locationpin.png")}
             alt="Location Pin"
-            style={{ maxWidth: "30vw" }}
+            style={{ maxWidth: "25vw" }}
           />
         </Col>
         <Col
@@ -144,7 +150,7 @@ const WhyGBSSection = () => {
           <img
             src={srcImgLink("home_highfive.png")}
             alt="Teamwork"
-            style={{ maxWidth: "30vw" }}
+            style={{ maxWidth: "25vw" }}
           />
         </Col>
         <Col
@@ -186,7 +192,7 @@ const WhyGBSSection = () => {
           <img
             src={srcImgLink("home_timer.png")}
             alt="Timer"
-            style={{ maxWidth: "30vw" }}
+            style={{ maxWidth: "25vw" }}
           />
         </Col>
         <Col
