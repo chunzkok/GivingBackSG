@@ -28,6 +28,13 @@ const SideNavbar = ({ children, activePath }) => {
           variant="pills"
           fill
         >
+          <Nav.Link href="/">
+            <img
+              src="/images/gbs_logo_long.png"
+              alt="Giving Back Singapore"
+              className="w-100"
+            />
+          </Nav.Link>
           <Nav.Item className="d-flex flex-column mx-auto py-3 ">
             <Image
               src="/images/avatar_default.png"
