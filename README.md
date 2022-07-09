@@ -7,6 +7,29 @@
 
 Python | React | JavaScript | Node.js
 
+- [Giving Back - Question 1](#giving-back---question-1)
+  * [Motivation](#motivation)
+  * [User Stories](#user-stories)
+- [Our Solution](#our-solution)
+  * [Benefits of Scaling Up](#benefits-of-scaling-up)
+  * [Telegram Bot](#telegram-bot)
+    + [Recording System](#recording-system)
+    + [Volunteer Summary](#volunteer-summary)
+    + [PDF generation](#pdf-generation)
+  * [Planned Website Features](#planned-website-features)
+    + [Filter by Preferred Beneficiaries](#filter-by-preferred-beneficiaries)
+    + [Add Telegram ID](#add-telegram-id)
+    + [Group Registration](#group-registration)
+- [Application Prototype and Visualisation](#application-prototype-and-visualisation)
+  * [Database](#database)
+  * [Volunteer Events List](#volunteer-events-list)
+- [Future Improvements and Extensions](#future-improvements-and-extensions)
+  * [Database Migration](#database-migration)
+  * [Singpass Log-in](#singpass-log-in)
+  * [Connecting to Official School Volunteering Ecosystems](#connecting-to-official-school-volunteering-ecosystems)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # Giving Back - Question 1
 Question Statement:
 Volunteering is one of the best ways to give back to our community. What creative ideas do you have to make volunteering easier, widespread, and more beneficial to those in need?
